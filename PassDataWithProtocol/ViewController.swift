@@ -51,11 +51,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 
-class Task {
-    var name = ""
-    
-    init(name: String) {
-        self.name = name
-    }
-}
+
 
