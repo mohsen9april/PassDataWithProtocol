@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PassData {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PassData , TableViewNew {
     
+
     var list : [Task] = []
     
     @IBOutlet weak var myTableView: UITableView!
@@ -31,7 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         cell.mylabelInCell.text = list[indexPath.row].name
-        
+        cell.cellDelegate = self
+        cell.index = indexPath
         return cell
         
     }
@@ -48,7 +50,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    func onClickCell(index: Int) {
+            print("\(index) is clicked !")
+        let myIndex = index
+        print((list[myIndex].name))
+        }
+    
+    
+    
 }
+
 
 
 

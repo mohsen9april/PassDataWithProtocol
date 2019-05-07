@@ -62,12 +62,12 @@
 			children = (
 				ED75D9C52281FEB300332381 /* AppDelegate.swift */,
 				ED75D9C72281FEB300332381 /* ViewController.swift */,
+				ED75D9D92281FF5300332381 /* TableViewCell.swift */,
 				ED75D9C92281FEB300332381 /* Main.storyboard */,
 				ED75D9CC2281FEB400332381 /* Assets.xcassets */,
 				ED75D9CE2281FEB400332381 /* LaunchScreen.storyboard */,
 				ED75D9D12281FEB400332381 /* Info.plist */,
 				ED75D9D72281FF3200332381 /* SecondViewController.swift */,
-				ED75D9D92281FF5300332381 /* TableViewCell.swift */,
 				ED75D9DB228200F800332381 /* Task.swift */,
 			);
 			path = PassDataWithProtocol;

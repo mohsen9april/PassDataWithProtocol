@@ -8,7 +8,18 @@
 
 import UIKit
 
+
+protocol TableViewNew {
+    func onClickCell(index: Int)
+}
+
+
 class TableViewCell: UITableViewCell {
+    
+    
+    var cellDelegate: TableViewNew?
+    var index: IndexPath?
+    
     
     @IBOutlet weak var mylabelInCell: UILabel!
 
@@ -21,6 +32,14 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    @IBAction func ClickMe(_ sender: Any) {
+        
+        cellDelegate?.onClickCell(index: (index?.row)!)
+  
+        
     }
 
 }
