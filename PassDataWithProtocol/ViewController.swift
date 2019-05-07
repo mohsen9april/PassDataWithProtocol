@@ -8,18 +8,54 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PassData {
+    
+    var list : [Task] = []
+    
+    @IBOutlet weak var myTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        myTableView.dataSource = self
+        myTableView.delegate = self
+        
+        list.append(Task(name: "First Obj"))
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
+        cell.mylabelInCell.text = list[indexPath.row].name
+        
+        return cell
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SecondViewController
+        vc.delegate = self
+    }
+    
+    
+    func passdata(data: String) {
+        list.append(Task(name: data))
+        myTableView.reloadData()
+    }
+    
+    
+}
 
 
+class Task {
+    var name = ""
+    
+    init(name: String) {
+        self.name = name
+    }
 }
 
